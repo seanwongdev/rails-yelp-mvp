@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= @restaurant.name  %> (<%= @restaurant.category.capitalize %>)</h1>
+
+  <%= @restaurant.address %> | <%= @restaurant.phone_number %>
+
+  <hr>
+
+  <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
+  <hr>
+  <h3>Reviews</h3>
+
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> (<%= review.rating %>)</li>
+  <% end %>
+  <hr>
+
+  <%= link_to 'Back to All Restaurants', restaurants_path %>
+</div>
